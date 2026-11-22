@@ -1,0 +1,32 @@
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+
+        vector<int> arr;
+
+        // Add first array
+        for (int x : nums1) {
+            arr.push_back(x);
+        }
+
+        // Add second array
+        for (int x : nums2) {
+            arr.push_back(x);
+        }
+
+        // Sort the combined array
+        sort(arr.begin(), arr.end());
+
+        int n = arr.size();
+
+        // If total elements are odd
+        if (n % 2 == 1) {
+            return arr[n / 2];
+        }
+
+        // If total elements are even
+        else {
+            return (arr[n / 2 - 1] + (double)arr[n / 2]) / 2;
+        }
+    }
+};
